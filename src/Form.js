@@ -16,6 +16,7 @@ class Form extends React.Component {
     }
 
     handleInputChange(event) {
+        //This will be invoked always when there is change in input
         let nam = event.target.name;
         let val = event.target.value;
         
@@ -25,6 +26,7 @@ class Form extends React.Component {
     }
 
     handleSubmit(event) {
+        // This will be invoked on form submit
         if(this.state.username === "") {
             alert("username cannot be empty");
         }else if(this.state.numberOfGuests === "0") {
@@ -41,41 +43,47 @@ class Form extends React.Component {
             console.log(this.state.username);
             console.log(this.state.numberOfGuests);
             console.log(this.state.flavor);
+            
+            // Pass data and route to thankyou page
+            this.props.history.push({
+                pathname: '/thankyou',
+                state: {
+                  username: this.state.username,
+                }
+              }) 
         }
         event.preventDefault();
     }
 
     render(){
         return (
-            <div className="Form">
+            <div className="App">
+            <header>
+                <img src={logo} className="App-logo" alt="logo" />
+            </header>
                 <form onSubmit = {this.handleSubmit}>
-                    <label>
-                        Enter your Name:
-                        <input
+                    <label> Enter your Name: </label>
+                    <input
                             type="text"
                             name="username"
                             onChange={this.handleInputChange} />
-                    </label>
                     <br />
-                    <label>
-                        Number of guests:
-                        <input
+                    <label> Number of guests: </label>
+                    <input
                             type="number"
                             name="numberOfGuests"
                             value={this.state.numberOfGuests}
                             onChange={this.handleInputChange} />
-                    </label>
                     <br />
-                    <label>
-                        Select your Flavor:
-                        <select name="flavor" value = {this.state.flavor} onChange = {this.handleInputChange}>
-                            <option value="grapefruit">Grapefruit</option>
-                            <option value="lime">Lime</option>
-                            <option value="coconut">Coconut</option>
-                            <option value="mango">Mango</option>
-                        </select>
-                    </label>
-                    <input type = "submit" value = "Submit" />
+                    <label> Select your Flavor: </label>
+                    <select name="flavor" value = {this.state.flavor} onChange = {this.handleInputChange}>
+                        <option value="grapefruit">Grapefruit</option>
+                        <option value="lime">Lime</option>
+                        <option value="coconut">Coconut</option>
+                        <option value="mango">Mango</option>
+                    </select>
+                    <br />
+                    <input type="submit" value="Submit" />
                 </form>
             </div>
         );            

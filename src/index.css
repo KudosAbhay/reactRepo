@@ -12,25 +12,27 @@ code {
     monospace;
 }
 
-form {
-  box-sizing: border-box;
-}
-
 input[type=text]:focus, input[type=number]:focus {
   background-color: lightblue;
-  border: 3px solid #555;
 }
 
 input[type=button], input[type=submit], input[type=reset] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
   background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
 }
 
-input {
-  background-color: white;
-  border: 3px solid #555;
+input, select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 label {

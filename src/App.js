@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   handleClick = () => {
@@ -14,12 +15,15 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <body>
-          <div className="input-group">
-              <span className="input-group-btn">
-                <button onClick={this.handleClick} type="button">
-                  Log In
+          <div className="container">
+            <div class="row">
+              <div class="col text-center">
+                {/* <button class="btn btn-default">Centered button</button> */}
+                <button onClick={this.handleClick} type="button" className="btn btn-outline-success">
+                    Log In
                 </button>
-              </span>
+              </div>
+            </div>
           </div>
         </body>
       </div>

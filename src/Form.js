@@ -46,7 +46,7 @@ class Form extends React.Component {
             
             // Pass data and route to thankyou page
             this.props.history.push({
-                pathname: '/thankyou',
+                pathname: '/tasks',
                 state: {
                   username: this.state.username,
                 }
